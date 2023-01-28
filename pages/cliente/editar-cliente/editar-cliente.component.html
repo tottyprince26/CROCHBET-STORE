@@ -1,0 +1,45 @@
+<div class="modificar-contenedor">
+
+    <form  id="form" #formulario="ngForm" (ngSubmit)="modificarCliente()" [formGroup]="formReactive">
+        <div>
+          <label for="nombre">Nombre: </label>
+        <input formControlName="nombre" name="nombre" type="text" placeholder="Nombre" [(ngModel)]="nombre">
+        <p *ngIf="getValue('nombre')?.invalid && (getValue('nombre')?.touched || getValue('nombre')?.dirty)" (click)="abrirVentana('nombre')">Campo no cumple requisitos</p>
+        </div>
+
+        <div>
+          <label for="apellido">Apellido: </label>
+        <input formControlName="apellido"  name="apellido" type="text" placeholder="Apellido" [(ngModel)]="apellido">
+        <p *ngIf="getValue('apellido')?.invalid && (getValue('apellido')?.touched || getValue('apellido')?.dirty)" (click)="abrirVentana('apellido')">Campo no cumple requisitos</p>
+        </div>
+
+        <div>
+          <label for="ciudad">Ciudad: </label>
+          <input formControlName="ciudad"name="ciudad" type="text" placeholder="Ciudad" [(ngModel)]="ciudad">
+          <p *ngIf="getValue('ciudad')?.invalid && (getValue('ciudad')?.touched || getValue('ciudad')?.dirty)" (click)="abrirVentana('ciudad')">Campo no cumple requisitos</p>
+        </div>
+
+        <div>
+          <label for="direccion">Dirección: </label>
+          <input formControlName="direccion" name="direccion" type="text" placeholder="Dirrección" [(ngModel)]="direccion">
+          <p *ngIf="getValue('direccion')?.invalid && (getValue('direccion')?.touched || getValue('direccion')?.dirty)" (click)="abrirVentana('direccion')">Campo no cumple requisitos</p>
+        </div>
+
+        <div>
+          <label for="telefono">Teléfono: </label>
+        <input  formControlName="telefono" name="telefono" type="text" placeholder="Teléfono" [(ngModel)]="telefono">
+        <p *ngIf="getValue('telefono')?.invalid && (getValue('telefono')?.touched || getValue('telefono')?.dirty)" (click)="abrirVentana('telefono')">Campo no cumple requisitos</p>
+        </div>
+
+        <div>
+          <label for="correo">Correo: </label>
+        <input formControlName="correo" name="imagen" type="text" placeholder="correo" [(ngModel)]="correo">
+        <p *ngIf="getValue('correo')?.invalid && (getValue('correo')?.touched || getValue('correo')?.dirty)" (click)="abrirVentana('correo')">Campo no cumple requisitos</p>
+        </div>
+
+        <div style="width: 50%;">
+          <button [disabled]="((!formReactive.valid))">Modificar</button>
+          <div style="border-radius: 5px; height: 30px; cursor: pointer; color: red; background-color: white; margin-top: 5px; font-weight: bold; width: 50%;" (click)="salir()">Cancelar</div> 
+        </div>
+    </form>
+</div>

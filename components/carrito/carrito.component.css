@@ -1,0 +1,137 @@
+#shopping-cart {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    top: 30px;
+    width: 100%;
+    background-color: #ffffffc5;
+}
+
+.contenedor{
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 55% 40%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow:  3px 5px 5px 5px black;
+    column-gap: 3%;
+    height: 580px;
+    width: 60%;
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border: 1px solid black;
+    overflow: scroll;
+    height: auto;
+}
+
+.todos-productos{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100px;
+    margin-left: 25px;
+    
+    height: 500px;
+}
+
+.fila{
+    display: grid;
+    grid-template-columns: 25% 55% 10%;
+    align-items: center;
+    column-gap: 5%;
+    margin-top: 5px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px rgb(27, 27, 27);
+    height: auto;
+}
+
+
+.producto .fila img{
+    border-radius: 20px;
+    width: 90px;
+    height:100px;
+}
+
+.resumen >div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+
+.total{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+button {
+    background-color: rgb(27, 27, 27);
+    color: white;
+    box-shadow:  3px 5px 5px 5px black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width :800px) {
+    .contenedor{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+    }
+
+    .items{
+        width: 100%;
+        height: auto;
+        align-items: center;
+    }
+
+    .todos-productos{
+        width: 95%;
+        margin: 0;
+        height: auto;
+    }
+
+    .producto{
+        height: auto;
+    }
+
+    .total{
+        margin: 0;
+        margin-top: 10px;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width :500px) {
+    .contenedor{
+        width: 90%
+    }
+}
+
+@media screen and (max-height :700px) {
+    .contenedor{
+        height: 500px;
+    }
+}

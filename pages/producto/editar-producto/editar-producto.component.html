@@ -1,0 +1,33 @@
+<div class="modificar-contenedor">
+    <h1 style="color:red;">EDITAR PRODUCTO</h1>
+    <form id="form" #f="ngForm" (ngSubmit)="modificarProducto()" [formGroup]="formReactive"  #form="ngForm">
+        <label for="titulo">Titulo</label>
+        <input formControlName="titulo" name="titulo" type="text" placeholder="titulo" [(ngModel)]="titulo" > 
+        <p *ngIf="getValue('titulo')?.invalid && (getValue('titulo')?.touched || getValue('titulo')?.dirty)" (click)="abrirVentana('titulo')">Campo no cumple requisitos</p>
+
+        <label for="precio">Precio</label>
+        <input formControlName="precio" name="precio" type="number" placeholder="precio" [(ngModel)]="precio" >
+        <p *ngIf="getValue('precio')?.invalid && (getValue('precio')?.touched || getValue('precio')?.dirty)" (click)="abrirVentana('precio')">Campo no cumple requisitos</p>
+
+        <label for="imagen">Imagen</label>
+        <input formControlName="imagen" name="imagen" type="text" placeholder="imagen" [(ngModel)]="imagen" >
+        <p *ngIf="getValue('imagen')?.invalid && (getValue('imagen')?.touched || getValue('imagen')?.dirty)" (click)="abrirVentana('imagen')">Campo no cumple requisitos</p>
+
+        <div>
+            <img width="100" height="100" [src]="imagen" alt="">
+        </div>
+
+        <label for="descripcion">Descripcion</label>
+        <textarea formControlName="descripcion" class="descripcion" name="descripcion" type="text-area" placeholder="descripcion" [(ngModel)]="descripcion" ></textarea>
+        <p *ngIf="getValue('descripcion')?.invalid && (getValue('descripcion')?.touched || getValue('descripcion')?.dirty)" (click)="abrirVentana('descripcion')">Campo no cumple requisitos</p>
+
+        <label for="categoria">Categoria</label>
+        <input formControlName="categoria" name="categoria" type="text" placeholder="categoria" [(ngModel)]="categoria">
+        <p *ngIf="getValue('categoria')?.invalid && (getValue('categoria')?.touched || getValue('categoria')?.dirty)" (click)="abrirVentana('categoria')">Campo no cumple requisitos</p>
+
+        <div style="width: 50%;">
+            <button [disabled]="((!formReactive.valid))">Modificar</button>
+            <div style=" border-radius: 5px;height: 30px; cursor: pointer; color: red; background-color: white; margin-top: 5px; font-weight: bold; width: 50%;" (click)="salir()">Cancelar</div> 
+        </div>
+    </form>
+</div>

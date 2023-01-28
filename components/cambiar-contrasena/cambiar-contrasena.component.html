@@ -1,0 +1,32 @@
+
+<div style=" background-color: rgba(0, 0, 0, 0.279); width: 100%; height: 100vh;  position: fixed; top: 30px; display: flex; flex-direction: column; justify-content: center; text-align: center; align-items: center;">
+    <div style="border-radius: 10px; background-color: rgb(222, 202, 159); padding: 15px;" >
+        <h2 style="box-shadow: 2px 2px 2px 2px white;">CAMBIA LA CONTRASEÑA!</h2>   
+        <form [formGroup]="formReactive">
+            <div class="contain">
+                <label for="old-password">Contraseña actual:</label>
+                <input formControlName="old" type="password" id="old-password" name="old-password" (keyup)="sendAction('old')"  (keydown)="sendAction('old')" [ngStyle]="{backgroundColor: inputColorPass}"  [(ngModel)]="oldContrasena"/>
+
+            </div>
+            <br>
+            <div class="contain">
+                <label for="new-password">Nueva contraseña:</label>
+                <input formControlName="new" type="text" id="new-password" name="new-password" (keyup)="sendAction('new')"  (keydown)="sendAction('new')" [ngStyle]="{backgroundColor: inputColorPass2}"  [(ngModel)]="firstContrasena"/>
+            </div>
+            
+            <br>
+            <div class="contain">
+                <label for="confirm-password">Confirmar nueva contraseña:</label>
+                <input formControlName="renew" type="text" id="confirm-password" name="confirm-password" (keyup)="sendAction('renew')"  (keydown)="sendAction('renew')" [ngStyle]="{backgroundColor: inputColorPass3}"   [(ngModel)]="secondContrasena"/>
+
+            </div>
+            
+            <br><br>
+            <div class="boton">
+                <input type="submit"  (click)="salir()"  value="Salir">
+                <input [disabled]="!formReactive.valid" (click)="CambiarContrasena()"  type="submit" value="Cambiar contraseña">
+            </div>
+        </form>
+    </div>
+    
+</div>

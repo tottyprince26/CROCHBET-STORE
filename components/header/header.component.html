@@ -1,0 +1,36 @@
+<header>
+    <div id="div" ><img id="perfilImg" src="../../../assets/pagina-inicio/usuario.png" /> 
+        <div class="dropdown-menu">
+            <span>{{user}} ▼</span> 
+            <ul class="dropdown">
+                <li (click)="verPerfil()">Mi cuenta</li>
+                <li (click)="cerrarSesion()">{{accion}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="buscador">
+        <div id="buscador-interno">
+            <div id="todo" (click)="buscarTodos()"> 
+                <p>Todo  ➤</p>
+            </div>
+            
+            <div  id="buscar" class="buscar"><input [(ngModel)]="filtro" class="caja" type="text" placeholder="ESCRIBE EL NOMBRE DE LO QUE BUSCAS !"></div>
+            <div ><img  (click)="buscar()" src="../../../assets/pagina-inicio/lupa.png" /></div>
+        </div>
+    </div>
+    <div id="div"  class="dropdown-menu">
+        <h2 style="cursor: pointer;">CROCHBET ▼</h2> 
+        <ul class="dropdown" *ngIf="rol=='admin'; else ocultar">
+            <li (click)="verProductos()">Productos</li>
+            <li (click)="verResenas()">Reseñas</li>
+            <li (click)="verAdministracion()">Administracion</li>
+        </ul>
+        <ng-template #ocultar>
+            <ul class="dropdown" *ngIf="rol=='cliente' || rol=='invitado'; else ocultar">
+                <li (click)="verProductos()">Productos</li>
+                <li (click)="verResenas()">Reseñas</li>
+            </ul>
+        </ng-template>
+    </div>
+    
+</header>

@@ -1,0 +1,31 @@
+<div class="modificar-contenedor">
+    <h1 style="color:red;">EDITAR PROVEEDOR</h1>
+    <form id="form" #formulario="ngForm" (ngSubmit)="modificarProveedor()" [formGroup]="formReactive">
+        
+        <label for="nombre">Nombre</label>
+        <input name="nombre" type="text" formControlName="nombre" placeholder="nombre" [(ngModel)]="nombre"> 
+        <p *ngIf="getValue('nombre')?.invalid && (getValue('nombre')?.touched || getValue('nombre')?.dirty)" (click)="abrirVentana('nombre')">Campo no cumple requisitos</p>
+       
+        <label for="ruc">Ruc</label>
+        <input name="ruc" type="number" formControlName="ruc" placeholder="ruc" [(ngModel)]="ruc">
+        <p *ngIf="getValue('ruc')?.invalid && (getValue('ruc')?.touched || getValue('ruc')?.dirty)" (click)="abrirVentana('ruc')">Campo no cumple requisitos</p>
+        
+        <label for="telefono">Telefono</label>
+        <input name="telefono" type="number" formControlName="telefono" placeholder="telefono" [(ngModel)]="telefono">
+        <p *ngIf="getValue('telefono')?.invalid && (getValue('telefono')?.touched || getValue('telefono')?.dirty)" (click)="abrirVentana('telefono')">Campo no cumple requisitos</p>
+
+        <label for="correo">Correo</label>
+        <input name="correo" type="text" formControlName="correo" placeholder="correo" [(ngModel)]="correo">
+        <p *ngIf="getValue('correo')?.invalid && (getValue('correo')?.touched || getValue('correo')?.dirty)" (click)="abrirVentana('correo')">Campo no cumple requisitos</p>
+
+        <label for="direccion"> Direccion</label>
+        <textarea class="direccion" name="direccion" type="text-area" formControlName="direccion" placeholder="direccion" [(ngModel)]="direccion"></textarea>
+        <p *ngIf="getValue('direccion')?.invalid && (getValue('direccion')?.touched || getValue('direccion')?.dirty)" (click)="abrirVentana('direccion')">Campo no cumple requisitos</p>
+
+        
+        <div  style="width: 50%;">
+            <button [disabled]="(!formReactive.valid)">Modificar</button> 
+            <div style="border-radius: 5px; height: 30px; width: 50%; cursor: pointer; color: red; background-color: white; margin-top: 5px; font-weight: bold;" (click)="salir()">Cancelar</div> 
+        </div>
+    </form>  
+</div>

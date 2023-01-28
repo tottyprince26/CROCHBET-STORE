@@ -1,0 +1,66 @@
+<div class="subcontenedor-admin">
+    <h1>Administración</h1>
+    <div class="caja">
+        <h1>PRODUCTOS</h1>
+
+        <div style="display: flex; justify-content: center; column-gap: 10px; width: 100%">
+            <button class="boton" (click)="estado('agregar')">AGREGAR</button>
+            <button class="boton" (click)="estado('listar')">LISTAR</button>
+        </div>
+
+        <div class="modulo" *ngIf="Actualstatus=='listar' ; else add">
+            <mat-form-field class="search">
+                <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+            </mat-form-field>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> id </th>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef> Titulo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef> Precio </th>
+                    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="image">
+                    <th mat-header-cell *matHeaderCellDef> Imagen </th>
+                    <td mat-cell *matCellDef="let element"><img style="width: 100px; height: 110px;"
+                            [src]="element.image" alt=""></td>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Desripcion </th>
+                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="category">
+                    <th mat-header-cell *matHeaderCellDef> Categoria </th>
+                    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                    <td mat-cell *matCellDef="let element">
+                        <img class="botones" style="cursor: pointer; " src="../../../../assets/administracion/editar.png"  (click)="editarProducto(element.id,element.title,element.price,element.image,element.description,element.category)"/>
+                        <img class="botones" style="cursor: pointer; margin-left: 1px;" src="../../../../assets/administracion/eliminar.png"  (click)="eliminarProducto(element.id)"/>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+        </div>
+
+        <ng-template #add style="width: 100%;">
+                <app-insertar-producto></app-insertar-producto>
+        </ng-template>
+
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div id="profile-container">
+    <div style="display: flex; justify-content: center;" class="profile-header">
+      <h1 id="profile-name">{{usuario.toUpperCase()}}</h1>
+    </div>
+    <form style="background-color: rgb(207, 207, 207); padding: 15px;" [formGroup]="formReactive" id="profile-form">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input formControlName="nombre" type="text" id="nombre" name="nombre" [(ngModel)]="nombre">
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña:</label>
+        <input formControlName="contrasena" type="password" id="contrasena" name="contrasena" [(ngModel)]="contrasena">      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input formControlName="direccion" type="text" id="direccion" name="direccion" [(ngModel)]="direccion">
+      </div>
+      <div class="form-group">
+        <label for="postal">Código Postal:</label>
+        <input formControlName="postal" type="text" id="postal" name="postal" [(ngModel)]="postal">
+      </div>
+      <div class="form-group">
+        <label for="nacimiento">Fecha de Nacimiento:</label>
+        <input formControlName="nacimiento"   type="date" id="nacimiento"  name="nacimiento" [(ngModel)]="nacimiento" >
+      </div>
+      <div class="form-group" style="display: flex;">
+        <button [disabled]="!formReactive.valid" type="submit" id="save-changes-button" (click)="guardarCambios()">Guardar cambios</button>
+        <button style="background-color: black; color: white;" type="button" id="change-password-button" (click)="cambiarContrasena()">Cambiar contraseña</button>
+      </div>
+    </form>
+  </div>
+<app-footer></app-footer>

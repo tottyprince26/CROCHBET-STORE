@@ -1,0 +1,21 @@
+.eliminar-contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50vh;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+}
+.botones{
+    width: 50%;
+    display: flex;
+    column-gap: 5%;
+}

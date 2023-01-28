@@ -1,0 +1,40 @@
+<div class="modulo" style="width:100%;  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; ">
+    <div id="pre-form" style="border-radius: 30px; margin-top: 20px; background-color: rgb(51, 51, 51); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <div  style="width: 100%; margin-top: 20px; margin-bottom: 20px;">
+            <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="formReactive"  #form="ngForm" style="width: 100%; display: flex; flex-direction: column; row-gap: 5px; align-items: center; text-align: center;">
+                <label for="">Titulo</label>
+                <input formControlName="titulo" type="text"  [(ngModel)]="titulo"
+                    placeholder="titulo">
+                <p *ngIf="getValue('titulo')?.invalid && (getValue('titulo')?.touched || getValue('titulo')?.dirty)" (click)="abrirVentana('titulo')">Campo no cumple requisitos</p>
+
+
+                <label for="">Precio</label>
+                <input formControlName="precio" type="number"  [(ngModel)]="precio"
+                    placeholder="precio"> 
+                <p *ngIf="getValue('precio')?.invalid && (getValue('precio')?.touched || getValue('precio')?.dirty)" (click)="abrirVentana('precio')">Campo no cumple requisitos</p>
+
+                <label for="">Imagen</label>
+                <input formControlName="imagen" type="text"  [(ngModel)]="miImagen"
+                    placeholder="url de imagen">
+                <p *ngIf="getValue('imagen')?.invalid && (getValue('imagen')?.touched || getValue('imagen')?.dirty) && miImagen!=imageDefault" (click)="abrirVentana('imagen')">Campo no cumple requisitos</p>
+
+                <div class="foto"> 
+                        <img (error)="evitarErrorImg2()" (load)="actualizar()"  width="200" [src]="cargarImagen()" alt="">
+                </div>
+                <label for="">Descripcion</label>
+                <textarea formControlName="descripcion" class="descripcion" type="text" [(ngModel)]="descripcion"
+                    placeholder="descripcion"></textarea>
+                <p *ngIf="getValue('descripcion')?.invalid && (getValue('descripcion')?.touched || getValue('descripcion')?.dirty)" (click)="abrirVentana('descripcion')">Campo no cumple requisitos</p>
+
+                <label for="">Categoria</label>
+                <input formControlName="categoria" type="text"  [(ngModel)]="categoria"
+                    placeholder="categoria">
+                <p *ngIf="getValue('categoria')?.invalid && (getValue('categoria')?.touched || getValue('categoria')?.dirty)" (click)="abrirVentana('categoria')">Campo no cumple requisitos</p>
+
+
+                <button [disabled]="((!formReactive.valid)|| miImagen==imageDefault) ">Agregar</button>
+            </form>
+        </div>
+    </div>
+
+</div>

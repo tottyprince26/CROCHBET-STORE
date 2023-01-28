@@ -1,0 +1,89 @@
+.modulo{
+    color:white;
+}
+input{
+    border:1px solid #fffffff3;
+    height: 20px;
+    box-shadow: 2px 2px 2px 2px #fffffff3;
+    outline:none;  
+    border-radius: 5px;
+}
+textarea{
+  border-radius: 5px;
+}
+
+input :focus{
+    outline:none;
+}
+
+.descripcion{
+    height :60px;
+    width: 50%;
+}
+
+label{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+button{
+    margin-top: 10px;
+    height: 30px;
+    width: fit-content;
+    border: 1px solid #fcfcfcf3;
+    box-shadow: 2px 2px 2px 2px #fffffff3;
+    cursor: pointer;
+}
+
+button:hover{
+    box-shadow: 1px 4px 7px 8px black;
+}
+p{
+  cursor: pointer;
+}
+
+.foto{
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.foto:hover{
+    box-shadow: 1px 1px 3px 4px white;
+}
+
+#pre-form{
+    width: 25%;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    #pre-form{
+      width: 50%;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    #pre-form{
+      width: 65%;
+    }
+  }
+   
+  @media screen and (max-width: 302px) {
+    input{
+      width: 50%;
+      font-size: 8px;
+     }
+     label{
+      font-size: 10px;
+     }
+    button{
+      width: 50%;
+      font-size: 8px;
+    }
+    textarea{
+      font-size: 8px;
+    }
+    #pre-form{
+      width: 80%;
+    }
+  }
+  

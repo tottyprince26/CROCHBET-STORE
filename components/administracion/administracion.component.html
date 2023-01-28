@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="contenedor-admin">
+    <div class="botones">
+        <button (click)="mostrarComponente('clientes')" style="border-radius: 40px; " class="boton">CLIENTES</button>
+        <button (click)="mostrarComponente('proveedores')" style="border-radius: 40px; " class="boton">PROVEEDORES</button>
+        <button (click)="mostrarComponente('resenas')" style="border-radius: 40px; " class="boton">RESEÑAS</button>
+        <button (click)="mostrarComponente('productos')" style="border-radius: 40px;  " class="boton">PRODUCTOS</button>
+    </div>
+    <div class="contenedor-interno" *ngIf="actualTag=='productos';else proovedor">
+       <app-listar-producto style="width: 100%;"></app-listar-producto>
+    </div>
+    <ng-template #proovedor>
+        <div class="contenedor-interno" *ngIf="actualTag=='proveedores';else clientes">
+            <app-listar-proveedor style="width: 100%;"></app-listar-proveedor>
+         </div>
+         <ng-template #clientes>
+            <div class="contenedor-interno" *ngIf="actualTag=='clientes';else resenas">
+                <app-listar-cliente style="width: 100%;"></app-listar-cliente>
+             </div>
+             <ng-template #resenas>
+                <div class="contenedor-interno" *ngIf="actualTag=='resenas'">
+                    <app-listar-resenia style="width: 100%;"></app-listar-resenia>
+                 </div>
+             </ng-template>
+         </ng-template>
+    </ng-template>
+</div>
+<app-footer></app-footer>

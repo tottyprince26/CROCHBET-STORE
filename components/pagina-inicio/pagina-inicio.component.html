@@ -1,0 +1,47 @@
+<div style="width: 100%; height: 100vh; margin: 0; padding: 0;">
+    <div (click)="mostrarCarrito()" (mouseleave)="ocultarTextoCarrito()"  ><span class="carrito-text" [ngStyle]="{display: despliegue}">VER</span></div>
+    <div  class="carrito">
+        <img (click)="mostrarCarrito()" (mouseenter)="desplegarTextoCarrito()"  height="50px" src="../../../assets/pagina-inicio/carro.png" >
+    </div>
+   <app-header [actualUser]="usuario"></app-header>
+    <body id="cuerpo">
+        <div>
+            <div>
+                <img style="width: 100%; border-top-left-radius: 20px; border-top-right-radius: 20px; background-size:cover;" src="../../../assets/pagina-inicio/banner.png"  alt="">
+            </div>
+        </div>
+        <div id="cajon" *ngFor="let category of categorias; index as indice">
+            <h1 id="title">{{category}}</h1>
+            <div class="contener-categoria" id="contener-categoria">
+                <div class="productos">
+                    <div class="contenedor-producto">
+                        <div class="producto" id="producto" *ngFor="let objeto of filtrarCategoria(category) ; index as indice" >
+                            <div class="item">
+                                <div (click)="verProducto(objeto.id)">
+                                    <img id="foto" [src]="objeto.image" alt="">
+                                    <p>	{{objeto.title}}</p>
+                                    <p class="precio">$ {{objeto.price}}</p>
+                                </div>
+                            </div>    
+                        </div> 
+                        <div (click)="buscar(category)" class="producto" id="producto" >
+                            <div class="item">
+                                <div>
+                                    <img id="foto"  alt="" id="mas">
+                                    <p>	Ver Más sobre</p>
+                                    <p class="precio">{{category.toLocaleLowerCase()}}</p>
+                                </div>
+                            </div>    
+                        </div>
+                         
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+        
+    </body>
+    <app-footer></app-footer>
+</div>
+<app-chat></app-chat>

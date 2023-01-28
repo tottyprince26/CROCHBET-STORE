@@ -1,0 +1,124 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+#profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100vh;
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+#profile-name {
+    font-size: 32px;
+}
+
+#profile-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: rgb(6, 6, 6);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus {
+    outline: none;
+    border-bottom: 2px solid #ffc107;
+}
+
+#save-changes-button {
+    background-color: #ffc107;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#save-changes-button:hover {
+    background-color: #ffa000;
+}
+
+#change-password-button {
+    background-color: transparent;
+    color: white;
+    padding: 12px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#change-password-button:hover {
+    background-color: white;
+    color: black;
+}
+
+@media only screen and (max-width: 600px) {
+    #profile-container {
+      width: 90%;
+    }
+    #profile-picture {
+      width: 100px;
+      height: 100px;
+    }
+    #profile-name {
+      font-size: 24px;
+    }
+    .form-group label {
+      font-size: 16px;
+    }
+  }
+  
+  /* Media query para pantallas medianas (entre 600px y 900px de ancho) */
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    #profile-picture {
+      width: 120px;
+      height: 120px;
+    }
+    #profile-name {
+      font-size: 28px;
+    }
+    .form-group label {
+      font-size: 18px;
+    }
+  }

@@ -1,0 +1,59 @@
+<ngx-spinner>
+    <div style="background-color: rgba(0, 0, 0, 0.551);">
+        <h3 style="color: white;">Pago realizado con exito!</h3>
+    </div>
+    
+</ngx-spinner>
+<div id="shopping-cart">
+    <h2>Carrito de compras ({{miCarrito.listaCarrito.length}} Item)</h2>
+    <div class="contenedor">
+        
+        <div class="items">
+            <p style="color: grey; width: 80%; text-align: justify; margin-left: 25px;">Por el momento Los pagos solamente son aceptados por paypal Por endese cobrará al precio final la comisión del servicio que corresponde al 5.4% más 0.3 centavos de dólar.</p>
+            <div class="todos-productos">
+                <hr size="3px" color="black" width="100%"/>
+                <div class="producto" *ngFor="let producto of miCarrito.listaCarrito; index as indice">
+                    <div class="fila">
+                        <img   [src]="producto.image" alt="">
+                        <p style="font-style: italic;">{{producto.description}}</p>
+                        <p style="font-weight: bold;">${{producto.price}}</p> 
+                    </div>
+                    <hr size="1px" color="black" width="100%"/>
+                </div>
+                
+            </div>
+        </div>
+        <div class="total">
+            <h2>Resumen del pedido</h2>
+            <div class="resumen" style="width:50%">
+                <div class="resumen-item">
+                    <p>Subtotal</p>
+                    <p><strong>${{miCarrito.geTotalCarrito()}}</strong></p>
+                </div>
+                <div class="resumen-item">
+                    <p>Envío</p>
+                    <p><strong>$0</strong></p>
+                </div>
+                <div class="resumen-item">
+                    <p>Comisiones</p>
+                    <p><strong>${{((miCarrito.geTotalCarrito()*0.054)+0.3).toFixed(2)}}</strong></p>
+                </div>
+                <div class="resumen-item">
+                    <p>Descuento</p>
+                    <p><strong>$0</strong></p>
+                </div>
+                <div class="resumen-item">
+                    <p>Total</p>
+                    <p><strong>${{(((miCarrito.geTotalCarrito()*0.054)+0.3)+miCarrito.geTotalCarrito()).toFixed(2)}}</strong></p>
+                </div>
+            </div>
+            <div style="justify-content: center; align-items: center; text-align: center; margin-top: 10px;"><ngx-paypal   [config]="payPalConfig"></ngx-paypal></div>
+
+        </div>
+        <p style="color: grey; width: 30%; text-align: justify; margin-left: 20px; width: 100%;"><strong>NOTA: </strong>Los productos se envían por correo certificado, el tiempo de entrega es de 15 a 20 días hábiles</p>
+        <div style="align-self: center; text-align: end;"><button  (click)="closeDialog()" style="background-color: red; width: fit-content; height: fit-content; " >Cerrar</button></div>
+        
+    </div>
+    <br><br>
+   
+  </div>

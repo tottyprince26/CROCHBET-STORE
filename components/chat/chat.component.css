@@ -1,0 +1,77 @@
+::ng-deep #chatbot-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: rgb(234, 234, 234);
+    border-radius: 40px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    /*borde degradado*/
+    box-shadow: 0 10px 10px 0 rgb(5, 5, 5);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    row-gap: 2%;
+  }
+
+  .chatbot{
+    width: 300px;
+  }
+
+  .chat{
+    height: 65%;
+    background-color: white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border:2px solid black;
+  }
+
+  .mensaje{
+    height: 10%;
+    background-color: white;
+    border:3px solid black;
+    text-align: center;
+  }
+
+  .boton{
+    height: 10%;
+    background-color: rgb(249, 10, 10);
+    color: white;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    cursor: pointer;
+  } 
+
+  .boton:hover{
+    
+    box-shadow: 0 10px 10px 0 rgb(5, 5, 5);
+  }
+
+  .boton2{
+    height: 10%;
+    background-color: rgb(8, 8, 8);
+    color: white;
+    cursor: pointer;
+  }
+
+  .boton2:hover{
+    
+    box-shadow: 0 10px 10px 0 rgb(5, 5, 5);
+  }
+
+  @media screen and (max-width: 900px) {
+    .chatbot{
+      width: 200px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .chatbot{
+      width: 100%;
+    }
+  }
+    

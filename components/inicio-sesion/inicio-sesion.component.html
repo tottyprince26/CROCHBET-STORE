@@ -1,0 +1,48 @@
+<div class="contenedor " id="contenedor">
+    
+    <div class="background"><div></div>
+    <div></div><!--<img src="../../../assets/inicio-sesion/fondo.jpeg" alt="" class="fondo" id="fondo">--></div>
+    
+    <div class="contenedor-formulario " id="contenedor-formulario">
+        <div class="logo" id="logo">
+            <img src="../../../assets/inicio-sesion/logotipo.png" alt=""/>
+            <span><strong>STORE</strong></span>
+            <div>
+                <h2>{{titulo}}</h2>
+            </div>
+            
+        </div>
+        
+        <div class="pre-formulario" id="pre-formulario" >
+            
+            <form class="formulario" id="formulario" [formGroup]="formReactive" (ngSubmit)="ejecutarAccion('OFICIAL')">
+                <div>
+                    <label>Usuario:</label>
+                    <input (keyup)="sendAction('user')"  (keydown)="sendAction('user')" [ngStyle]="{backgroundColor: inputColorUser}"  type="text"  formControlName="user"/>
+                </div>
+                <p class="vtnUser"  *ngIf="getValue('user')?.invalid && (getValue('user')?.touched || getValue('user')?.dirty)" (click)="abrirVentana('user')">*usuario incorrecto*</p>
+                <div>                
+                    <label>Contraseña:</label>
+                    <input (keyup)="sendAction('password')"  (keydown)="sendAction('password')" [ngStyle]="{backgroundColor: inputColorPass}" type="text"  formControlName="password"/>
+                </div>
+                <p class="vtnPass"  *ngIf="getValue('password')?.invalid && (getValue('password')?.touched || getValue('password')?.dirty)" (click)="abrirVentana('password')">*contraseña incorrecta*</p>
+            
+
+                <input [disabled]="!formReactive.valid"  type="submit" name="" id="" [value]="accion"/>
+                
+            </form>
+            
+           
+        </div>
+        
+        <div class="pre-registro" id="pre-registro">
+            <div>
+                <p (click)="ejecutarAccion('INVITADO')" style="font-size: 1rem; color: red; cursor: pointer;"> {{enlace}} </p>
+                <span><strong>{{span}}</strong></span>
+                <button (click)="cambiarAccion()">{{alternativa}}</button>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>

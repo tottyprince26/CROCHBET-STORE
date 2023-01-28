@@ -1,0 +1,13 @@
+<div id="chatbot-float">
+    <img style="cursor: pointer;" (click)="cambiarEstado()" *ngIf="estado=='desactivado'; else chat" width="70px" src="../../../assets/chat/bot.png" alt="">
+    <ng-template #chat >
+        <div class="chatbot" style="height:300px; display: flex; flex-direction: column; row-gap: 5px;">
+            <textarea disabled class="chat" style="color :black;">{{ mensajes }}</textarea>
+            <textarea class="mensaje" [(ngModel)]="mensaje"></textarea>
+            <button class="boton2" (click)="sendMessage()">Enviar</button>
+            <button class="boton" (click)="cambiarEstado()">Cerrar</button>
+        </div>
+        
+    </ng-template>
+    
+</div>
