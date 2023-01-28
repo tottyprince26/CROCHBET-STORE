@@ -1,0 +1,31 @@
+body{
+    /*overflow: hidden; */
+    padding: 0;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+
+@media screen and (min-width: 0px){
+    html{
+        font-size: 62.5%; /* 1rem = 10px */
+    }
+}
+
+@media screen and (min-width: 270px){
+    html{
+        font-size: 82.5%; /* 1rem = 10px */
+    }
+}
+
+@media screen and (min-width: 600px){
+    html{
+        font-size: 85.5%; /* 1rem = 10px */
+    }
+}
+
+@media screen and (min-width: 900px){
+    html{
+        font-size: 100%; /* 1rem = 10px */
+    }
+}
